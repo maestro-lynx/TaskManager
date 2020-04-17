@@ -1,0 +1,52 @@
+﻿@using TaskManager.WEB.Infrastructure.Helpers
+@{
+    Layout = null;
+    ViewBag.Title = "Выход";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Выход | TaskManager</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+</head>
+<body class="hold-transition lockscreen">
+    <!-- Automatic element centering -->
+    <div class="lockscreen-wrapper">
+        <div class="lockscreen-logo">
+            <a href="@Url.Action("Login","Account")"><b>Task</b>Manager</a>
+        </div>
+        <!-- User name -->
+            <!-- lockscreen image -->
+            <div class="lockscreen-name" align ="center">
+                <img src="data:image/jpg;base64,@ViewBag.UserProfileImage" height="70" width="70">
+                <div class="lockscreen-name" align="center">@ViewBag.UserFullName</div>
+            </div>
+            <!-- /.lockscreen-image -->
+            <!-- lockscreen credentials (contains the form) -->
+
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <a href="@Url.Action("Login","Account")" type="button" class="btn"><i class="fas fa-sign-in-alt"></i></a>
+                    </div>
+                </div>
+            <!-- /.lockscreen credentials -->
+        <div class="help-block text-center">
+            Вы вышли из системы чтобы снова зайти нажмите кнопку
+        </div>
+        <div class="text-center">
+            <a href="@Url.Action("Login","Account")">Войти</a>
+        </div>
+        <div class="lockscreen-footer text-center">
+            Copyright &copy; @DateTime.Now.Year <b>TaskManager</b><br>
+            All rights reserved
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

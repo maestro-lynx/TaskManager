@@ -1,0 +1,223 @@
+﻿@model TaskManager.WEB.Models.ProjectViewModel
+@using TaskManager.WEB.Models
+@using TaskManager.WEB.Infrastructure.Helpers
+@{
+    ViewBag.Title = "Детали задания";
+}
+@section Styles{
+    <!--Plugin CSS file with desired skin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+    @Styles.Render("~/Content/toastrcss")
+
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Задание</h3>
+            <div class="card-tools">
+                @if (Model.ToUserId == ViewBag.MyId)
+                {
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-progress">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <a class="btn btn-tool" href="">
+
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-primary">@Model.Title</h3>
+                            <p class="text-muted">@Model.Description</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Комментарий</h4>
+                            <div class="post">
+                                @if ((ViewData["Comments"] as List<CommentViewModel>).Count == 0)
+                                {
+
+                                    <p>
+                                        Пока нет комментариев
+                                    </p>
+
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewData["Comments"] as List<CommentViewModel>)
+                                    {
+                                        <div class="user-block">
+                                            @MyHelpers.ProfileImage(item.UserId, "img-circle img-bordered-sm", "40", "40")
+                                            <span class="username">
+                                                <a href="@Url.Action("Details","Account",new { id = item.UserId})">@item.UserName</a>
+                                            </span>
+                                            <span class="description">@item.CreatedAt</span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p>
+                                                    @item.Content
+                                                </p>
+                                            </div>
+                                            @if (item.UserId == ViewBag.MyId)
+                                            {
+                                                using (Html.BeginForm("DeleteComment", "Projects", new { id = item.Id }, FormMethod.Post, new { @class = "form-horizontal col-2" }))
+                                                {
+                                                    <button class="btn btn-default float-right" type="submit"><i class="fas fa-trash"></i></button>
+
+                                                }
+                                            }
+                                        </div>
+                                        <br>
+                                    }
+                                }
+                                @if (Model.ToUserId == ViewBag.MyId || Model.FromUserId == ViewBag.MyId)
+                                {
+                                    using (Html.BeginForm("AddComment", "Projects", FormMethod.Post, new { @class = "form-horizontal" }))
+                                    {
+                                        @Html.Hidden("ProjectId", Model.Id);
+                                        <div class="input-group input-group-sm mb-0">
+                                            <input name="Content" class="form-control form-control-sm" placeholder="Добавить комментарий">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-danger">Отправить</button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="info-box bg-light">
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-center text-muted">Дата создания</span>
+                                    <span class="info-box-number text-center text-muted mb-0">@Html.DisplayFor(x => x.CreatedAt)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="info-box bg-light">
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-center text-muted">Срок выполнения</span>
+                                    <span class="info-box-number text-center text-muted mb-0">@Html.DisplayFor(x => x.Deadline)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-muted">
+                        <p class="text-sm">
+                            От кого
+                            <b class="d-block">@Model.FromUserName</b>
+                        </p>
+                        <p class="text-sm">
+                            Для кого
+                            <b class="d-block">@Model.ToUserName</b>
+                        </p>
+                        <p class="text-sm">
+                            Статус проекта
+                            <b class="d-block">@Model.Status</b>
+                        </p>
+                        <p class="text-sm">
+                            Прогресс
+                            <b class="d-block">@Model.Progress%</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+@section Modals {
+    <div class="modal fade" id="modal-progress">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @using (Html.BeginForm("ChangeProgress", "Projects", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    @Html.HiddenFor(x => x.Id);
+                    @Html.HiddenFor(x => x.CreatedAt);
+                    @Html.HiddenFor(x => x.Deadline);
+                    @Html.HiddenFor(x => x.Description);
+                    @Html.HiddenFor(x => x.Title);
+                    @Html.HiddenFor(x => x.FromUserId);
+                    @Html.HiddenFor(x => x.ToUserId);
+                    @Html.HiddenFor(x => x.Status);
+                    @Html.HiddenFor(x => x.Progress);
+                    <div class="modal-header">
+                        <h4 class="modal-title">Изменение прогресса задания</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="deletingObject">Выберите прогресс задания</p>
+                        <div class="range-slider">
+                            <input type="text" id="sliderProgress" name="sliderProgress" class="js-range-slider" value="" />
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                @Html.CheckBox("sendEmail", new { @class = "form-check-input", @id = "sendEmailCheck" })
+                                <label class="form-check-label" for="sendEmailCheck">Отправить уведомление на почту</label>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-primary">Изменить</button>
+                    </div>
+                }
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/toastrjs")
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Plugin JavaScript file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script>
+    $(function () {
+    var msg = "@(TempData["Message"] as string)";
+    var success = "@(TempData["Success"])";
+    if (msg !== "") {
+        if (success == "True") {
+
+            toastr.success(msg);
+        }
+        else {
+            toastr.error(msg)
+        }
+
+    };
+
+    $("#sliderProgress").ionRangeSlider({
+        min: 0,
+        max: 100,
+        from: '@Model.Progress',
+        onChange: function (data) {
+            $("#sliderProgress").val
+        }
+    });
+        });
+    </script>
+}

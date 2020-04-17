@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TaskManager.WEB.Areas.Admin.ViewModels.DepartmentViewModel>
+
+@{
+    ViewBag.Title = "Отделения";
+}
+<p>
+    <a class="btn btn-success btn-sm" href="@Url.Action("Create","Department")">
+        <i class="far fa-plus-square">
+        </i>
+        Добавить
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DName)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="2" class="text-center">Не найдено отделении</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DName)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("Details", "Department", new { id = item.Id })">
+                        <i class="fas fa-folder">
+                        </i>
+                    </a>
+                    <a class="btn btn-info btn-sm" href="@Url.Action("Edit", "Department", new { id = item.Id })">
+                        <i class="fas fa-pencil-alt">
+                        </i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "Department", new { id = item.Id })">
+                        <i class="fas fa-trash">
+                        </i>
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+
+    </table>
