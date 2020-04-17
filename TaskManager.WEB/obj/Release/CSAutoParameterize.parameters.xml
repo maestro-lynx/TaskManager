@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="TaskManagerDB-Web.config Connection String" description="TaskManagerDB Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Server=tcp:taskmanagerserver.database.windows.net,1433;Initial Catalog=TaskManagerDB;Persist Security Info=False;User ID=TaskManagerAdmin;Password=Zhandos77;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\usenz\\source\\repos\\TaskManager\\TaskManager\.WEB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TaskManagerDB']/@connectionString" />
+  </parameter>
+</parameters>

@@ -124,3 +124,4 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\Microsoft.Owin.Host.
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\EntityFramework.SqlServer.dll
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\EntityFramework.SqlServer.xml
+C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\obj\Debug\TaskManager.WEB.csproj.CoreCompileInputs.cache

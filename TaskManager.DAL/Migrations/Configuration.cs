@@ -51,13 +51,13 @@
             {
                 user = new AppUser()
                 {
-                    RealName ="",
-                    Surname="",
-                    Email="",
-                    Job="Администратор",
+                    RealName = "",
+                    Surname = "",
+                    Email = "",
+                    Job = "Администратор",
                     UserName = userName,
                     CreatedAt = DateTime.Now,
-                    DepartmentId = 1                   
+                    DepartmentId = 1
                 };
                 var userResult = userManager.Create(user, password);
                 if (userResult.Succeeded)

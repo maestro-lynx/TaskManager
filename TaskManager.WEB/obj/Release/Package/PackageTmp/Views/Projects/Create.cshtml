@@ -1,0 +1,93 @@
+﻿@model TaskManager.WEB.Models.ProjectViewModel
+@{
+    ViewBag.Title = "Создать задание";
+}
+<section class="content">
+    @using (Html.BeginForm("Create", "Projects", FormMethod.Post,
+                            new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(x => x.FromUserId, new { @value = ViewBag.FromUserId })
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Задание</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputName">@Html.DisplayNameFor(x => x.Title)</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @id = "inputName", @placeholder = "Название задания" })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescription">@Html.DisplayNameFor(x => x.Description)</label>
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @id = "inputDescription", @placeholder = "Описание", @rows = "4" })
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescription">@Html.DisplayNameFor(x => x.Deadline)</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </div>
+                                <input type="date" id="datemask" name="Deadline" class="form-control" data-inputmask-alias="date" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <!--
+    <div class="form-group">
+        <label for="inputStatus">Status</label>
+        Html.DropDownListFor(x => x.Status, ViewBag.StatusItems as SelectList, new { class = "form-control custom-select" })
+    </div> -->
+                    </div>
+    <!-- /.card-body -->
+                    </div>
+                <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Пользователь</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">@Html.DisplayNameFor(x => x.ToUserId)</label>
+                            @Html.DropDownListFor(x => x.ToUserId, ViewBag.Users as SelectList, new { @class = "form-control custom-select" })
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            @Html.CheckBox("sendEmail", new { @class = "form-check-input" ,@id="sendEmailCheck"})
+                            <label class="form-check-label" for="sendEmailCheck">Отправить уведомление на почту</label>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a href="@Url.Action("Delivered","Projects")" class="btn btn-secondary">Отмена</a>
+                <input type="submit" value="Создать задание" class="btn btn-success float-right">
+            </div>
+        </div>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/гггг' })
+</script>
+}

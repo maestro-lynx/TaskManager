@@ -25,8 +25,6 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Debug\Microsoft.Owin
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Debug\Newtonsoft.Json.xml
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csprojAssemblyReference.cache
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.Migrations.Migr.resources
+C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csproj.CoreCompileInputs.cache
+C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.Migrations.First.resources
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csproj.GenerateResource.cache
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.Migrations.ProjectChanged.resources
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.Migrations.ChangeProgress.resources

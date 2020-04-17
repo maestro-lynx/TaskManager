@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="TaskManagerWEB" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\usenz\\source\\repos\\TaskManager\\TaskManager\.WEB\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\usenz\\source\\repos\\TaskManager\\TaskManager\.WEB\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="TaskManagerDB-Web.config Connection String" description="" value="Server=tcp:taskmanagerserver.database.windows.net,1433;Initial Catalog=TaskManagerDB;Persist Security Info=False;User ID=TaskManagerAdmin;Password=Zhandos77;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\usenz\\source\\repos\\TaskManager\\TaskManager\.WEB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TaskManagerDB']/@connectionString" />
+  </parameter>
+</parameters>

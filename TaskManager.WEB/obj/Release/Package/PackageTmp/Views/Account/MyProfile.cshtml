@@ -1,0 +1,164 @@
+﻿@model TaskManager.WEB.Models.UserViewModel
+@using TaskManager.WEB.Infrastructure.Helpers
+@{
+    ViewBag.Title = "Профиль пользователя";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Profile Image -->
+        <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+                <div class="text-center">
+                    @MyHelpers.ProfileImage("", "img-circle", "128", "128")
+                </div>
+                <br>
+                <h3 class="profile-username text-center">@Model.RealName @Model.Surname</h3>
+
+                <p class="text-muted text-center">
+                    <span>@ViewBag.MyDep</span><br>
+                    <span>@Model.Job</span>
+                </p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                        <div><i class="fas fa-at"></i> <span class="float-right">@Html.DisplayFor(x => x.Email)</span></div>
+                    </li>
+                    <li class="list-group-item">
+                        <div> <i class="fas fa-phone"></i> <span class="float-right">@Html.DisplayFor(x => x.PhoneNumber)</span></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Настройки профиля</a></li>
+                </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane" id="settings">
+                        @Html.ValidationSummary(true, "", new { @style = "color: red" })
+
+                        @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(u => u.Id)
+                            @Html.HiddenFor(u => u.CreatedAt)
+                            @Html.HiddenFor(u => u.ProfileImage)
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.ProfileImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-10">
+                                    <div class="mb-3">@MyHelpers.ProfileImage(Model.Id, "img-circle elevation-2", "45", "45", new Dictionary<string, string> { { "id", "profileImage" } })</div>
+                                    <div class="custom-file col-md-3">
+                                        <input type="file" class="custom-file-input" name="inputProfileImage" id="inputProfileImage" onchange="loadFile(event)" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                                        <label class="custom-file-label" for="inputProfileImage">Выберите файл</label>
+                                        <label class="custom-file-label" for="inputGroupFile01">Выберите файл</label>
+                                        @Html.ValidationMessageFor(model => model.RealName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputUserName" class="col-sm-2 col-form-label">@Html.LabelFor(u => u.UserName)</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @id = "inputUserName", @value = Model.UserName })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputRealName" class="col-sm-2 col-form-label">@Html.LabelFor(u => u.RealName)</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(u => u.RealName, new { @class = "form-control", @id = "inputRealName", @value = Model.RealName })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputSurname" class="col-sm-2 col-form-label">@Html.LabelFor(u => u.Surname)</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(u => u.Surname, new { @class = "form-control", @id = "inputSurname", @value = Model.Surname })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputDepartment" class="col-sm-2 col-form-label">Отдел</label>
+                                <div class="col-sm-10">
+                                    @Html.DropDownListFor(u => u.DepartmentId, ViewBag.Departments as SelectList, new { @class = "form-control custom-select" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputJob" class="col-sm-2 col-form-label">Должность</label>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(u => u.Job, new { @class = "form-control", @value = Model.Job })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputSurname" class="col-sm-2 col-form-label">Пароль</label>
+                                <div class="col-sm-10">
+                                    @Html.PasswordFor(u => u.Password, new { @class = "form-control", @id = "inputPassword" })
+                                    @Html.ValidationMessageFor(u => u.Password)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success">
+                                        Сохранить
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div><!-- /.card-body -->
+        </div>
+        <!-- /.nav-tabs-custom -->
+    </div>
+</div>
+<!-- /.col -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    var loadFile = function (event) {
+    var output = document.getElementById('profileImage');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    };
+        $(function () {
+        var msg = "@(TempData["Message"] as string)";
+        var success = "@(TempData["Success"])";
+        if (msg !== "") {
+            if (success == "True")
+            {
+                toastr.success(msg);
+            }
+            else
+            {
+                toastr.error(msg)
+            }
+
+        }
+
+    });
+    </script>
+
+
+}

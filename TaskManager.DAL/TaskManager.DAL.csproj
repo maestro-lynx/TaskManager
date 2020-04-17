@@ -98,17 +98,9 @@
     <Compile Include="Identity\AppRoleManager.cs" />
     <Compile Include="Identity\AppSignInManager.cs" />
     <Compile Include="Identity\AppUserManager.cs" />
-    <Compile Include="Migrations\202004120944359_Migr.cs" />
-    <Compile Include="Migrations\202004120944359_Migr.designer.cs">
-      <DependentUpon>202004120944359_Migr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004130825301_ProjectChanged.cs" />
-    <Compile Include="Migrations\202004130825301_ProjectChanged.designer.cs">
-      <DependentUpon>202004130825301_ProjectChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004171051516_ChangeProgress.cs" />
-    <Compile Include="Migrations\202004171051516_ChangeProgress.designer.cs">
-      <DependentUpon>202004171051516_ChangeProgress.cs</DependentUpon>
+    <Compile Include="Migrations\202004171537211_First.cs" />
+    <Compile Include="Migrations\202004171537211_First.designer.cs">
+      <DependentUpon>202004171537211_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,14 +129,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004120944359_Migr.resx">
-      <DependentUpon>202004120944359_Migr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004130825301_ProjectChanged.resx">
-      <DependentUpon>202004130825301_ProjectChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004171051516_ChangeProgress.resx">
-      <DependentUpon>202004171051516_ChangeProgress.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004171537211_First.resx">
+      <DependentUpon>202004171537211_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

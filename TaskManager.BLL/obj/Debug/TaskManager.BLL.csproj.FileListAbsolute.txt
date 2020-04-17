@@ -62,3 +62,4 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.BLL\bin\Debug\ru\System.Web.
 C:\Users\usenz\source\repos\TaskManager\TaskManager.BLL\bin\Debug\ru\System.Web.WebPages.resources.dll
 C:\Users\usenz\source\repos\TaskManager\TaskManager.BLL\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\usenz\source\repos\TaskManager\TaskManager.BLL\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\usenz\source\repos\TaskManager\TaskManager.BLL\obj\Debug\TaskManager.BLL.csproj.CoreCompileInputs.cache
