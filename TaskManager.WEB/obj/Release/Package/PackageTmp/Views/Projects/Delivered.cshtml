@@ -4,7 +4,7 @@
     ViewBag.Title = "Мои отправленные задания";
 }
 @section Styles{
-    @Styles.Render("~/Content/toastrcss")
+    @Styles.Render("~/Content/plugins/toastr/toastrcss")
 }
 
 <div class="card-header">
@@ -130,7 +130,7 @@
 
 @section Scripts
 {
-    @Scripts.Render("~/bundles/toastrjs")
+    @Scripts.Render("~/Content/plugins/toastr/toastrjs")
     <script>
     $(function () {
         var msg = "@(TempData["Message"] as string)";
@@ -148,9 +148,9 @@
         }
 
     });
-    function Delete(identifier) { 
-        $("#modalId").val($(identifier).data('id')); 
-    }; 
+    function Delete(identifier) {
+        $("#modalId").val($(identifier).data('id'));
+    };
 
     </script>
 }

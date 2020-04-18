@@ -1,31 +1,31 @@
 ﻿@model  TaskManager.WEB.Models.UserMenuViewModel
 @using TaskManager.WEB.Infrastructure.Helpers
-    <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        @if (User.IsInRole("Admin"))
-        {
-            <li class="nav-item">
-                <a href="@Url.Action("Index","Home", new { area = "Admin" })" type="button" class="btn btn-warning">В панель администратора</a>
-            </li>
-        }
-        <li class="nav-item dropdown user-menu">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                @MyHelpers.ProfileImage(Model.Id, "user-image img-circle elevation-2")
-                <span class="d-none d-md-inline">@Model.RealName @Model.Surname</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <!-- User image -->
-                <li class="user-header bg-primary">
-                    @MyHelpers.ProfileImage(Model.Id, "img-circle elevation-2")
-                    <br>@Model.RealName @Model.Surname
-                    <br>@Model.DepartmentName
-                    <br> @Model.Job
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                    <a href="@Url.Action("Details","Account")" class="btn btn-default btn-flat">Профиль</a>
-                    <a href="@Url.Action("Logout","Account")" class="btn btn-default btn-flat float-right">Выйти</a>
-                </li>
-            </ul>
+<ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+    @if (User.IsInRole("Admin"))
+    {
+        <li class="nav-item">
+            <a href="@Url.Action("Index","Home", new { area = "Admin" })" type="button" class="btn btn-warning">В панель администратора</a>
         </li>
+    }
+    <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+            @MyHelpers.ProfileImage(Model.Id, "user-image img-circle elevation-2")
+            <span class="d-none d-md-inline">@Model.RealName @Model.Surname</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <!-- User image -->
+            <li class="user-header bg-primary">
+                @MyHelpers.ProfileImage(Model.Id, "img-circle elevation-2")
+                <br>@Model.RealName @Model.Surname
+                <br>@Model.DepartmentName
+                <br> @Model.Job
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+                <a href="@Url.Action("Details","Account")" class="btn btn-default btn-flat">Профиль</a>
+                <a href="@Url.Action("Logout","Account")" class="btn btn-default btn-flat float-right">Выйти</a>
+            </li>
+        </ul>
+    </li>
 
-    </ul>
+</ul>

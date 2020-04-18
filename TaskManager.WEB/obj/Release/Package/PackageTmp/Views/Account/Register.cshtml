@@ -9,8 +9,10 @@
         <title>AdminLTE 3 | Registration Page</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/plugins/fontawesome/css/all")
+        @Styles.Render("~/Content/plugins/ionicons/css")
+        @Styles.Render("~/Content/css/adminlte")
+        @Styles.Render("~/Fonts/sourcesans")
     </head>
     <body class="hold-transition register-page">
         <div class="register-box">
@@ -55,7 +57,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type="email", @placeholder = "Почта" })
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type = "email", @placeholder = "Почта" })
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -88,19 +90,21 @@
                         <div class="row">
                             <!-- /.col -->
                             <div class="col">
-                                </div>
-                                <div class="float-right">
-                                    <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
-                                </div>
-                                <!-- /.col -->
                             </div>
-                            }
-                            @Html.ActionLink("У меня есть аккаунт", "Login", "Account", new { @class = "text-center" })
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+                            </div>
+                            <!-- /.col -->
                         </div>
+                    }
+                    @Html.ActionLink("У меня есть аккаунт", "Login", "Account", new { @class = "text-center" })
+                </div>
                 <!-- /.form-box -->
             </div><!-- /.card -->
         </div>
-        @Scripts.Render("~/bundles/js")
+        @Scripts.Render("~/bundles/plugins/jquery/jq")
+        @Scripts.Render("~/bundles/js/adminlte")
+        @Scripts.Render("~/Content/plugins/bootstrap/js/bundle")
         @Scripts.Render("~/bundles/jqueryval")
     </body>
 </html>

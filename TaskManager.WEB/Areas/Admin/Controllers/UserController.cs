@@ -168,6 +168,7 @@ namespace TaskManager.WEB.Areas.Admin.Controllers
 
         // POST: Admin/User/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(string id, UserViewModel userVM)
         {
             try

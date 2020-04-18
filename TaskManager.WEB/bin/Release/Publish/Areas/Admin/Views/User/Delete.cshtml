@@ -1,0 +1,44 @@
+﻿@model TaskManager.WEB.Areas.Admin.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Удаление пользователя";
+}
+
+<div>
+    <h4>Вы точно хотите удалить пользователя @Html.DisplayFor(model => model.UserName)?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RealName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к списку", "Index")
+        </div>
+    }
+</div>

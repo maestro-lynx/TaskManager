@@ -10,7 +10,10 @@
     <title>Вход</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugins/fontawesome/css/all")
+    @Styles.Render("~/Content/plugins/ionicons/css")
+    @Styles.Render("~/Content/css/adminlte")
+    @Styles.Render("~/Fonts/sourcesans")
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -54,9 +57,7 @@
                 }
 
 
-                <p class="mb-1">
-                    <a href="forgot-password.html">Забыли пароль?</a>
-                </p>
+
                 <p class="mb-0">
                     @Html.ActionLink("Регистрация нового аккаунта", "Register", "Account", new { @class = "text-center" })
                 </p>
@@ -65,7 +66,9 @@
         </div>
     </div>
     <!-- /.login-box -->
-    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/plugins/jquery/jq")
+    @Scripts.Render("~/bundles/js/adminlte")
+    @Scripts.Render("~/Content/plugins/bootstrap/js/bundle")
     @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

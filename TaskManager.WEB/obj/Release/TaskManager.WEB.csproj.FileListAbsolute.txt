@@ -125,3 +125,5 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\obj\Release\TaskManager.
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\obj\Release\TaskManager.WEB.csproj.CopyComplete
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\obj\Release\TaskManager.WEB.dll
 C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\obj\Release\TaskManager.WEB.pdb
+C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\AjaxMin.dll
+C:\Users\usenz\source\repos\TaskManager\TaskManager.WEB\bin\AspNetBundling.dll

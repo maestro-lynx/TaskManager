@@ -1,0 +1,106 @@
+﻿@model TaskManager.WEB.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 3 | Registration Page</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        @Styles.Render("~/Content/css")
+    </head>
+    <body class="hold-transition register-page">
+        <div class="register-box">
+            <div class="register-logo">
+                <a href="@Url.Action("Index", "Home")"><b>Task</b>Manager</a>
+            </div>
+
+            <div class="card">
+                <div class="card-body register-card-body">
+                    <p class="login-box-msg">Регистрация нового аккаунта</p>
+                    @Html.ValidationSummary(true, "", new { @style = "color: red" })
+
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post,
+                        new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+
+                    {
+                        @Html.AntiForgeryToken();
+                        @Html.HiddenFor(x => x.ProfileImage)
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(x => x.RealName, new { @class = "form-control", @placeholder = "Имя" })
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @placeholder = "Фамилия" })
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Имя пользователя" })
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type="email", @placeholder = "Почта" })
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control", @id = "password", @placeholder = "Пароль" })
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.PasswordFor(x => x.ConfirmPassword, new
+                            {
+                                @class = "form-control",
+                                @id = "confirm_password",
+                           @onkeyup = "checkPass(); return false",
+                           @placeholder = "Подтверждение пароля"
+                            })
+                            <span id="confirmMessage" class="confirmMessage"></span>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- /.col -->
+                            <div class="col">
+                                </div>
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-primary btn-block">Регистрация</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            }
+                            @Html.ActionLink("У меня есть аккаунт", "Login", "Account", new { @class = "text-center" })
+                        </div>
+                <!-- /.form-box -->
+            </div><!-- /.card -->
+        </div>
+        @Scripts.Render("~/bundles/js")
+        @Scripts.Render("~/bundles/jqueryval")
+    </body>
+</html>

@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "Профиль пользователя";
 }
-
+@section Styles{
+    @Styles.Render("~/Content/plugins/toastr/toastrcss")
+}
 <div class="row">
     <div class="col-md-4">
         <!-- Profile Image -->
@@ -43,10 +45,10 @@
             </div><!-- /.card-header -->
             <div class="card-body">
                 <div class="tab-content">
-                    <div class="tab-pane" id="settings">
+                    <div id="settings">
                         @Html.ValidationSummary(true, "", new { @style = "color: red" })
 
-                        @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                        @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.HiddenFor(u => u.Id)
@@ -61,7 +63,6 @@
                                         <input type="file" class="custom-file-input" name="inputProfileImage" id="inputProfileImage" onchange="loadFile(event)" accept=".png,.jpg,.jpeg,.gif,.tif" />
                                         <label class="custom-file-label" for="inputProfileImage">Выберите файл</label>
                                         <label class="custom-file-label" for="inputGroupFile01">Выберите файл</label>
-                                        @Html.ValidationMessageFor(model => model.RealName, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +136,8 @@
     </div>
 </div>
 <!-- /.col -->
-@section Scripts {
+@section Scripts {   
+    @Scripts.Render("~/Content/plugins/toastr/toastrjs")
     @Scripts.Render("~/bundles/jqueryval")
     <script>
     var loadFile = function (event) {

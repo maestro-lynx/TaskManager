@@ -23,9 +23,9 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Release\Microsoft.Ow
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Release\Microsoft.Owin.Security.OAuth.xml
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Release\Newtonsoft.Json.xml
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.csprojAssemblyReference.cache
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.Migrations.First.resources
-C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.csproj.GenerateResource.cache
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.csproj.CoreCompileInputs.cache
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.csproj.CopyComplete
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.dll
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.pdb
+C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.Migrations.First.resources
+C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Release\TaskManager.DAL.csproj.GenerateResource.cache

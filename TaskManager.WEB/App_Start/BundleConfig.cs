@@ -14,34 +14,34 @@ namespace TaskManager.WEB
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
-            // готово к выпуску, используйте средство сборки по адресу https://modernizr.com, чтобы выбрать только необходимые тесты.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                    "~/Content/plugins/jquery/jquery.min.js",
-                    "~/Content/plugins/bootstrap/js/bootstrap.bundle.min.js",
-                    "~/Content/js/adminlte.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js/adminlte").Include(//js
+                        "~/Content/js/adminlte.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/inputmaskjs").Include(
-                    "~/Content/plugins/inputmask/min/jquery.inputmask.bundle.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/plugins/jquery/jq").Include(//js
+                    "~/Content/plugins/jquery/jquery.min.js"));
 
-             bundles.Add(new ScriptBundle("~/bundles/toastrjs").Include(
-                    "~/Content/plugins/toastr/toastr.min.js",
-                    "~/Scripts/MyToastr.js"));
+           bundles.Add(new ScriptBundle("~/Content/plugins/bootstrap/js/bundle").Include(//js
+                    "~/Content/plugins/bootstrap/js/bootstrap.bundle.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/plugins/fontawesome-free/css/all.min.css",
-                "~/Content/plugins/ionicons/ionicons.min.css",
-                "~/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
-                "~/Content/css/adminlte.min.css",
+             bundles.Add(new ScriptBundle("~/Content/plugins/toastr/toastrjs").Include(//toastrjs
+                    "~/Content/plugins/toastr/toastr.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/plugins/fontawesome/css/all").Include(//css
+                "~/Content/plugins/fontawesome-free/css/all.min.css", new CssRewriteUrlTransformFixed()));
+
+
+            bundles.Add(new StyleBundle("~/Content/plugins/ionicons/css").Include(//css
+                "~/Content/plugins/ionicons/ionicons.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/adminlte").Include(//css
+                "~/Content/css/adminlte.min.css"));
+            bundles.Add(new StyleBundle("~/Fonts/sourcesans").Include(//css
                 "~/Fonts/Source Sans Pro.css"));
 
-            bundles.Add(new StyleBundle("~/Content/toastrcss").Include(
+            bundles.Add(new StyleBundle("~/Content/plugins/toastr/toastrcss").Include(//toastrcss
                 "~/Content/plugins/toastr/toastr.min.css"));
 
         }

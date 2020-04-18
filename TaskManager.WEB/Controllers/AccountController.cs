@@ -194,10 +194,12 @@ namespace TaskManager.WEB.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> UpdateProfile(UserViewModel userViewModel)
+        public async Task<ActionResult> UpdateProfile(UserViewModel userViewModel, HttpPostedFileBase inputProfileImage)
         {
             if (ModelState.IsValid)
             {
+                byte[] image = ImageConverter.ConvertImage(inputProfileImage);
+                userViewModel.ProfileImage = image;
                 var config = new MapperConfiguration(cfg =>
                 {
                     cfg.CreateMap<UserViewModel, UserDTO>();

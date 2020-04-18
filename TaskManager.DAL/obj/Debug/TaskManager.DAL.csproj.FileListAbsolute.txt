@@ -28,3 +28,4 @@ C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\bin\Debug\Newtonsoft.Jso
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csproj.CoreCompileInputs.cache
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.Migrations.First.resources
 C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csproj.GenerateResource.cache
+C:\Users\usenz\source\repos\TaskManager\TaskManager.DAL\obj\Debug\TaskManager.DAL.csprojAssemblyReference.cache

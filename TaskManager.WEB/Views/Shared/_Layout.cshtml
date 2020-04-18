@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title | TaskManager</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugins/fontawesome/css/all")
+    @Styles.Render("~/Content/plugins/ionicons/css")
+    @Styles.Render("~/Content/css/adminlte")
+    @Styles.Render("~/Fonts/sourcesans")
     @RenderSection("Styles", required: false)
 </head>
 <body class="hold-transition sidebar-collapse layout-top-nav">
@@ -14,7 +17,7 @@
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="@Url.Action("Index","Home")" class="navbar-brand">
-                    <img src="~/Images/logo.png" alt="Logo"  class="brand-image img-circle elevation-3"
+                    <img src="~/Images/logo.png" alt="Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">TaskManager</span>
                 </a>
@@ -39,6 +42,7 @@
 
                             </ul>
                         </li>
+                        <li class="nav-item"><a href="@Url.Action("Departments","Home")" class="nav-link">Отделения</a></li>
                     </ul>
 
                     <!-- SEARCH FORM -->
@@ -57,8 +61,8 @@
                     }
                 </div>
 
-                @{ 
-                        Html.RenderAction("UserMenu", "Account");
+                @{
+                    Html.RenderAction("UserMenu", "Account");
                 }
             </div>
         </nav>
@@ -93,7 +97,9 @@
             reserved.
         </footer>
     </div>
-    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/plugins/jquery/jq")
+    @Scripts.Render("~/bundles/js/adminlte")
+    @Scripts.Render("~/Content/plugins/bootstrap/js/bundle")
     @RenderSection("Scripts", required: false)
 </body>
 </html>

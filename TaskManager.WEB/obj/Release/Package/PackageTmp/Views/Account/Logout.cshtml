@@ -12,7 +12,10 @@
     <title>Выход | TaskManager</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugins/fontawesome/css/all")
+    @Styles.Render("~/Content/plugins/ionicons/css")
+    @Styles.Render("~/Content/css/adminlte")
+    @Styles.Render("~/Fonts/sourcesans")
 </head>
 <body class="hold-transition lockscreen">
     <!-- Automatic element centering -->
@@ -21,20 +24,20 @@
             <a href="@Url.Action("Login","Account")"><b>Task</b>Manager</a>
         </div>
         <!-- User name -->
-            <!-- lockscreen image -->
-            <div class="lockscreen-name" align ="center">
-                <img src="data:image/jpg;base64,@ViewBag.UserProfileImage" height="70" width="70">
-                <div class="lockscreen-name" align="center">@ViewBag.UserFullName</div>
-            </div>
-            <!-- /.lockscreen-image -->
-            <!-- lockscreen credentials (contains the form) -->
+        <!-- lockscreen image -->
+        <div class="lockscreen-name" align="center">
+            <img src="data:image/jpg;base64,@ViewBag.UserProfileImage" height="70" width="70">
+            <div class="lockscreen-name" align="center">@ViewBag.UserFullName</div>
+        </div>
+        <!-- /.lockscreen-image -->
+        <!-- lockscreen credentials (contains the form) -->
 
-                <div class="input-group">
-                    <div class="input-group-append">
-                        <a href="@Url.Action("Login","Account")" type="button" class="btn"><i class="fas fa-sign-in-alt"></i></a>
-                    </div>
-                </div>
-            <!-- /.lockscreen credentials -->
+        <div class="input-group">
+            <div class="input-group-append">
+                <a href="@Url.Action("Login","Account")" type="button" class="btn"><i class="fas fa-sign-in-alt"></i></a>
+            </div>
+        </div>
+        <!-- /.lockscreen credentials -->
         <div class="help-block text-center">
             Вы вышли из системы чтобы снова зайти нажмите кнопку
         </div>
@@ -46,7 +49,8 @@
             All rights reserved
         </div>
     </div>
-    @Scripts.Render("~/bundles/js")
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/js/adminlte")
+    @Scripts.Render("~/bundles/plugins/jquery/jq")
+    @Scripts.Render("~/Content/plugins/bootstrap/js/bundle")
 </body>
 </html>

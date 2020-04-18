@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetBundling, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNetBundling.3.0.0\lib\net45\AspNetBundling.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac, Version=5.1.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.5.1.2\lib\net461\Autofac.dll</HintPath>
     </Reference>
@@ -190,8 +196,8 @@
     <Compile Include="Infrastructure\Helpers\MyHelpers.cs" />
     <Compile Include="Infrastructure\Utils\EmailService.cs" />
     <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\DepartmentViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
-    <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -332,11 +338,6 @@
     <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Project\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Project\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Project\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Project\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Project\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -384,7 +385,7 @@
     <Content Include="Content\plugins\jquery\jquery.min.map" />
     <Content Include="Content\plugins\jquery\jquery.slim.min.map" />
     <Content Include="Content\plugins\toastr\toastr.js.map" />
-    <None Include="Properties\PublishProfiles\taskmanagersite - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\webtaskmanager - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -502,6 +503,8 @@
     <Content Include="Views\Projects\AccessDenied.cshtml" />
     <Content Include="Views\Account\Search.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Home\Departments.cshtml" />
+    <Content Include="Views\Home\AboutDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

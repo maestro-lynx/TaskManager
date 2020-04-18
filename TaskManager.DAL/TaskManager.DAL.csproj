@@ -98,9 +98,9 @@
     <Compile Include="Identity\AppRoleManager.cs" />
     <Compile Include="Identity\AppSignInManager.cs" />
     <Compile Include="Identity\AppUserManager.cs" />
-    <Compile Include="Migrations\202004171537211_First.cs" />
-    <Compile Include="Migrations\202004171537211_First.designer.cs">
-      <DependentUpon>202004171537211_First.cs</DependentUpon>
+    <Compile Include="Migrations\202004180657087_First.cs" />
+    <Compile Include="Migrations\202004180657087_First.designer.cs">
+      <DependentUpon>202004180657087_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,8 +129,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004171537211_First.resx">
-      <DependentUpon>202004171537211_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004180657087_First.resx">
+      <DependentUpon>202004180657087_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

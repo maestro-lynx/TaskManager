@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title | TaskManager</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugins/fontawesome/css/all")
+    @Styles.Render("~/Content/plugins/ionicons/css")
+    @Styles.Render("~/Content/css/adminlte")
+    @Styles.Render("~/Fonts/sourcesans")
     @RenderSection("Styles", required: false)
 </head>
 <body class="hold-transition sidebar-collapse layout-top-nav">
@@ -90,7 +93,9 @@
             reserved.
         </footer>
     </div>
-    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/plugins/jquery/jq")
+    @Scripts.Render("~/bundles/js/adminlte")
+    @Scripts.Render("~/Content/plugins/bootstrap/js/bundle")
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | TaskManager</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("Styles", required: false)
+</head>
+<body class="hold-transition sidebar-collapse layout-top-nav">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <div class="container">
+                <a href="@Url.Action("Index","Home")" class="navbar-brand">
+                    <img src="~/Images/logo.png" alt="Logo"  class="brand-image img-circle elevation-3"
+                         style="opacity: .8">
+                    <span class="brand-text font-weight-light">TaskManager</span>
+                </a>
+
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index","Home")" class="nav-link">Главная</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Задания</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="@Url.Action("Received","Projects")" class="dropdown-item">Полученные</a></li>
+                                <li><a href="@Url.Action("Delivered","Projects")" class="dropdown-item">Отправленные</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a href="@Url.Action("Create","Projects")" class="dropdown-item">Создать</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- SEARCH FORM -->
+                    @using (Html.BeginForm("Search", "Account", FormMethod.Post, new { @class = "form-inline ml-0 ml-md-3" }))
+                    {
+                        @Html.Hidden("startIndex", 0);
+                        @Html.Hidden("pageSize", 9);
+                        <div class="input-group input-group-sm">
+                            <input name="query" class="form-control form-control-navbar" type="search" placeholder="Поиск пользователей" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                @{ 
+                        Html.RenderAction("UserMenu", "Account");
+                }
+            </div>
+        </nav>
+
+        <!-- Content Wrapper. Contains page content -->
+        <section class="content">
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0 text-dark">@ViewBag.Title</h1>
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content-header -->
+                <!-- Main content -->
+                <div class="content">
+                    <div class="container">
+                        @RenderBody()
+                    </div><!-- /.container-fluid -->
+                </div>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            @RenderSection("Modals", required: false)
+        </section>
+        <footer class="main-footer">
+            <strong>Copyright &copy; @DateTime.Now.Year TaskManager.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

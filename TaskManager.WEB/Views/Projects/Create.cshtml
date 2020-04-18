@@ -35,7 +35,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                 </div>
-                                <input type="date" id="datemask" name="Deadline" class="form-control" data-inputmask-alias="date" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
+                                <input type="date" id="datemask" name="Deadline" class="form-control">
                             </div>
                             <!-- /.input group -->
                         </div>
@@ -87,7 +87,4 @@
 </section>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script>
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/гггг' })
-</script>
 }

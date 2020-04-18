@@ -88,12 +88,5 @@
     }
 </section>
 @section Scripts {
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/inputmaskjs")
-    <script>
-        $(function () {
-            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/гггг' })
-        });
-    </script>
 }

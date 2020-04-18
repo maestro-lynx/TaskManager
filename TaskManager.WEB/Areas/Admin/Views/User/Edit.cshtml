@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ProfileImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="mb-3">@MyHelpers.ProfileImage(Model.Id, "img-circle elevation-2","45","45", new Dictionary<string, string> { { "id", "profileImage" } })</div>
+                <div class="mb-3">@MyHelpers.ProfileImage(Model.Id, "img-circle elevation-2", "45", "45", new Dictionary<string, string> { { "id", "profileImage" } })</div>
                 <div class="custom-file col-md-3">
                     <input type="file" class="custom-file-input" name="inputProfileImage" id="inputProfileImage" onchange="loadFile(event)" accept=".png,.jpg,.jpeg,.gif,.tif" />
                     <label class="custom-file-label" for="inputProfileImage">Выберите файл</label>
@@ -111,6 +111,7 @@
     @Html.ActionLink("Назад к списку", "Index")
 </div>
 @section Scripts {
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         var loadFile = function (event) {

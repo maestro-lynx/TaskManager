@@ -1,0 +1,71 @@
+﻿@model TaskManager.WEB.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Вход</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="@Url.Action("Index", "Home")"><b>Task</b>Manager</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Войдите чтобы начать работу</p>
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @style = "color: red" })
+                    <div class="input-group mb-3">
+                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Имя пользователя" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Пароль" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                        </div>
+                    </div>
+                }
+
+
+                <p class="mb-1">
+                    <a href="forgot-password.html">Забыли пароль?</a>
+                </p>
+                <p class="mb-0">
+                    @Html.ActionLink("Регистрация нового аккаунта", "Register", "Account", new { @class = "text-center" })
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

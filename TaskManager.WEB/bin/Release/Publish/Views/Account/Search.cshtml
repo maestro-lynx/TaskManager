@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TaskManager.WEB.Models.UserViewModel>
+    @using TaskManager.WEB.Infrastructure.Helpers
+@{
+    ViewBag.Title = string.Format($"Поиск пользователей по запросу {ViewBag.Query}");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row d-flex align-items-stretch">
+                @if (Model == null)
+                {
+                    <p>Не найдено пользователей</p>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                    @item.DepartmentName
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>@item.FullName</b></h2>
+                                            <p class="text-muted text-sm"><b>Должность: </b>@item.Job</p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Email: @item.Email</li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Телефон #: @item.PhoneNumber</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            @MyHelpers.ProfileImage(item.Id, "img-circle img-fluid", "128", "128")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="@Url.Action("Details","Account", new { id = item.Id })" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-user"></i> Профиль
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <!-- /.card-body -->
+        @if (ViewBag.MaxPages > 0)
+        {
+            <div class="card-footer">
+                <nav aria-label="Contacts Page Navigation">
+                    <ul class="pagination justify-content-center m-0">
+                        @for (int i = 0; i < ViewBag.MaxPages; i++)
+                        {
+                            if (i == ViewBag.ThisPage)
+                            {
+                                <li class="page-item active"><a class="page-link" href="@Url.Action("Search","Account",new {query = ViewBag.Query, startIndex =i*9,pageSize = 9 })">i+1</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="@Url.Action("Search","Account",new {query = ViewBag.Query, startIndex =i*9,pageSize = 9 })">i+1</a></li>
+                            }                          
+                        }
+                    </ul>
+                </nav>
+            </div>
+            <!-- /.card-footer -->
+        }
+
+    </div>
